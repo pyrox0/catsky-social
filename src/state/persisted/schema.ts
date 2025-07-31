@@ -131,7 +131,7 @@ const schema = z.object({
   unfollowConfirm: z.boolean().optional(),
 
   showExternalShareButtons: z.boolean().optional(),
-  customShareLink: z.string(),
+  customShareLink: z.string().optional(),
 
   /** @deprecated */
   mutedThreads: z.array(z.string()),

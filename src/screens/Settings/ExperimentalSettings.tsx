@@ -60,7 +60,7 @@ export function ExperimentalSettingsScreen({}: Props) {
   const showExternalShareButtons = useShowExternalShareButtons()
   const setShowExternalShareButtons = useSetShowExternalShareButtons()
 
-  const customShareLink = useCustomShareLink() ?? 'https://deer.social/'
+  const customShareLink = useCustomShareLink() ?? 'https://catsky.social/'
   const setCustomShareLink = Dialog.useDialogControl()
 
   const [gates, setGatesView] = useState(Object.fromEntries(useGatesCache()))
@@ -82,7 +82,7 @@ export function ExperimentalSettingsScreen({}: Props) {
     const t = useTheme()
     const customShareLink = useCustomShareLink()
     const setCustomShareLink = useSetCustomShareLink()
-    const [url, setUrl] = useState(customShareLink)
+    const [url, setUrl] = useState(customShareLink ?? '')
     const shouldDisable = () => {
       try {
         return !new URL(url).hostname.includes('.')
@@ -101,7 +101,7 @@ export function ExperimentalSettingsScreen({}: Props) {
         try {
           return new URL('https://' + url).toString()
         } catch (e) {
-          return null
+          return undefined
         }
       }
     }
