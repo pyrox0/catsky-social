@@ -131,6 +131,7 @@ const schema = z.object({
   unfollowConfirm: z.boolean().optional(),
 
   showExternalShareButtons: z.boolean().optional(),
+  customShareLink: z.string(),
 
   /** @deprecated */
   mutedThreads: z.array(z.string()),
@@ -190,6 +191,7 @@ export const defaults: Schema = {
   directFetchRecords: false,
   unfollowConfirm: false,
   showExternalShareButtons: false,
+  customShareLink: 'https://catsky.social/',
 }
 
 export function tryParse(rawData: string): Schema | undefined {
